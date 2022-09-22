@@ -1,13 +1,17 @@
 export const initialState = {
   mainPosts: [{
     id: 1,
-    user: {
+    User: {
       id: 1,
       nickname: 'youngeun',
     },
     content: '첫 번째 게시글 #해시태그',
     Images: [{
+      src: 'https://bookthumb-phinf.pstatic.net/cover/137/995/13799585.jpg?udate=20180726',
+    }, {
       src: "https://img.hankyung.com/photo/202012/01.24791736.1.jpg"
+    }, {
+      src: 'https://ssl.pstatic.net/mimgnews/image/144/2021/11/23/0000776249_001_20211123080501374.jpg?type=w540'
     }],
     Comments: [{
       User: {
