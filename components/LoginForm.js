@@ -35,6 +35,7 @@ const LoginForm = () => {
         <br />
         <Input
           name='user-email'
+          type='email'
           placeholder='아이디입력'
           value={email}
           onChange={onChangeEmail}
