@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { delay, put, takeLatest, all, fork } from "redux-saga/effects";
-import { addComment } from '../reducers/post';
+// import { addComment } from '../reducers/post';
 
 import {
   ADD_POST_SUCCESS, ADD_POST_FAILURE, ADD_POST_REQUEST,

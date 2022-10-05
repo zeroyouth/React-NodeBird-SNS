@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 
 const CommentForm = ({ post }) => {
+  dispatch = useDispatch();
   const id = useSelector((state) => state.user.me?.id) //로그인 안하면 me가 없다.
   const { addCommentDone } = useSelector((state) => state.post);
   const [commentText, setCommentText] = useState('');
