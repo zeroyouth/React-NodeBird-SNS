@@ -1,3 +1,5 @@
+import shortId from 'shortid';
+
 export const initialState = {
   mainPosts: [{
     id: 1,
@@ -54,7 +56,7 @@ export const addComment = (data) => ({
 });
 
 const dummyPost = (data) => ({
-  id: 2,
+  id: shortId.generate(),
   content: data,
   User: {
     id: 1,
@@ -94,6 +96,7 @@ const reducer = (state = initialState, action) => {
         addCommentError: null,
       }
     case ADD_COMMENT_SUCCESS:
+      //action.data.content, postId, userId
       return {
         ...state,
         addCommentLoading: false,
