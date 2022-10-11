@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 const CommentForm = ({ post }) => {
   dispatch = useDispatch();
   const id = useSelector((state) => state.user.me?.id) //로그인 안하면 me가 없다.
-  const { addCommentDone } = useSelector((state) => state.post);
+  const { addCommentDone, addCommentLoading } = useSelector((state) => state.post);
   const [commentText, setCommentText] = useState('');
 
   useEffect(() => {
@@ -31,7 +31,12 @@ const CommentForm = ({ post }) => {
     <Form onFinish={onSubmitComment}>
       <Form.Item style={{ position: 'relative', margin: 0 }}>
         <Input.TextArea rows={4} value={commentText} onChange={onChangeCommentText} />
-        <Button type="primary" htmlType="submit">전송</Button>
+        <Button
+          style={{ position: 'absolute', right: 0, bottom: -40, zIndex: 1 }}
+          type="primary"
+          htmlType="submit"
+          loading={addCommentLoading}
+        >전송</Button>
       </Form.Item>
     </Form>
   );

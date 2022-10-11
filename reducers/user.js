@@ -56,8 +56,8 @@ const dummyUser = (data) => ({
   nickname: '제로',
   id: 1,
   Posts: [{ id: 1 }],
-  Followings: [],
-  Followers: [],
+  Followings: [{ nickname: '부기초' }, { nickname: 'Chanho Lee' }, { nickname: 'neue zeal' }],
+  Followers: [{ nickname: '부기초' }, { nickname: 'Chanho Lee' }, { nickname: 'neue zeal' }],
 })
 
 export const loginRequestAction = (data) => {
@@ -152,6 +152,22 @@ const reducer = (state = initialState, action) => {
         ...state,
         changeNicknameLoading: false,
         changeNicknameError: action.error,
+      };
+    case ADD_POST_TO_ME:
+      return {
+        ...state,
+        me: {
+          ...state.me,
+          Posts: [{ id: action.data }, ...state.me.Posts]
+        }
+      };
+    case REMOVE_POST_OF_ME:
+      return {
+        ...state,
+        me: {
+          ...state.me,
+          Posts: state.me.Posts.filter((v) => v.id !== action.data),
+        }
       };
     default:
       return { ...state, };
