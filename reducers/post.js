@@ -48,6 +48,21 @@ export const initialState = {
 }
 //비동기 요청은 3쌍씩 
 
+initialState.mainPosts = initialState.mainPosts.concat(
+  Array(20).fill().map(() => ({
+    id: shortId.generate(),
+    User: {
+      id: shortId.generate(),
+      nickname: faker.name.findName()
+    },
+    content: faker.lorem.paragraph,
+    Images: [{
+      src: faker.image.imageUrl(),
+    }],
+    Comments: faker.lorem.sentence(),
+  }))
+);
+
 const ADD_POST_REQUEST = 'ADD_POST_REQUEST';
 const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS';
 const ADD_POST_FAILURE = 'ADD_POST_FAILURE';
